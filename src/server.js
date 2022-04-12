@@ -13,15 +13,13 @@ const server = http.createServer(app)
 const io = new Server(server)
 
 server.listen(process.env.SERVER_PORT || 3000, () => {
-    console.log("Server Funcionando")
+    console.log(`Server Funcionando na Porta ${process.env.SERVER_PORT || 3000}`)
 })
 
 app.use(cors())
-
 app.use(express.static(path.join(__dirname, "public")))
 
 let connectedUsers = [];
-
 io.on("connection", (socket) => {
     console.log("Conexao Bem Sucedida")
   
