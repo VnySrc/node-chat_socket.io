@@ -3,7 +3,7 @@ import path from "path"
 import http from "http"
 import dotenv from "dotenv"
 import {Server} from "socket.io"
-
+import cors from "cors"
 
 dotenv.config()
 const __dirname = path.resolve();
@@ -12,9 +12,11 @@ const app = express()
 const server = http.createServer(app)
 const io = new Server(server)
 
-server.listen(process.env.SERVER_PORT, () => {
+server.listen(process.env.SERVER_PORT || 3000, () => {
     console.log("Server Funcionando")
 })
+
+app.use(cors())
 
 app.use(express.static(path.join(__dirname, "public")))
 
