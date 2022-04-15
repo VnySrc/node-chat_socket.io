@@ -4,6 +4,7 @@ import http from "http"
 import dotenv from "dotenv"
 import {Server} from "socket.io"
 import cors from "cors"
+import chatRoutes from "./routes/mainRoutes.js"
 
 dotenv.config()
 const __dirname = path.resolve();
@@ -18,6 +19,7 @@ server.listen(process.env.SERVER_PORT || 3000, () => {
 
 app.use(cors())
 app.use(express.static(path.join(__dirname, "public")))
+app.use(chatRoutes)
 
 let connectedUsers = [];
 io.on("connection", (socket) => {

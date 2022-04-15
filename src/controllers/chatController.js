@@ -1,3 +1,5 @@
-import { RenderPageModel } from "../models/RenderPage.js"
+import path from "path"
+import {RenderPage} from "../models/RenderPage.js"
 
-export const showPage = RenderPageModel()
+
+export const showPage = RenderPage

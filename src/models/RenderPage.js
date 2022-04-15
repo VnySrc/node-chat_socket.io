@@ -1,3 +1,5 @@
-export const RenderPageModel = (res, req) => {
-    res.render(path.join(__dirname, "public"))
+import path from "path"
+
+export const RenderPage = (req, res) => {
+    res.render(path.resolve("public"))
 }
